@@ -32,7 +32,10 @@ console.log(strings.substring(strings.length - 4, strings.length -1 ))
 //metodo para colocar aspas duplas dentro de aspas duplas 
 strings = "uma string e um \"texto\" "
 console.log(strings)
-///====================================================
+//strings todas maiusculas
+console.log(strings.toUpperCase())
+//strings todas minisculas
+console.log(strings.toLowerCase())
 // cria um array baseado nos resultados 
 console.log(strings.split(' '))
 
@@ -46,3 +49,4 @@ console.log(strings)
 const teste = "teste"
 strings = `uma 'string' e ${teste} um "texto" `
 console.log(strings)
+
