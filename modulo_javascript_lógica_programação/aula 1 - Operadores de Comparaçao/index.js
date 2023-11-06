@@ -9,5 +9,20 @@
 * !== diferente estrito(valor e tipo) 
 sempre vao retornar boolean
 */
-const compare= (10 >= 5 )
+let compare= (10 >= 5 )
 console.log(compare)
+
+compare= (10 > 5 )
+console.log(compare)
+
+compare = (10 < 5 )
+console.log(compare)
+//nao recomendado 
+console.log(10 == "10")
+//recomendado
+console.log(10 === "10")
+
+
+
+
+
