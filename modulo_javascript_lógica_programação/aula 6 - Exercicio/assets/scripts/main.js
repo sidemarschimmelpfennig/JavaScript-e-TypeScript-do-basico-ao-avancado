@@ -19,11 +19,15 @@ form.addEventListener('submit',function(e){
     }
     
     const imc = getImc(peso, altura)
-    nivel(imc)
-    setResult(imc, false) 
+    if (imc > 18.5  && imc < 25){
+        setResult(`Seu IMC é ${imc}(${nivel(imc)})`, true ) 
+    }else{
+        setResult(`Seu IMC é ${imc}(${nivel(imc)})`, false) 
+    }
+    
 })
 const nivel = (imc) =>{
-    result = Number(imc).toFixed(2)
+    result = imc
     const message = ["Abaixo do peso", "Peso normal", "Sobrepeso", "Obesidade grau 1", "Obesidade grau 2",
     "Obesidade grau 3"  ]
         if(result >= 39.9) return message[5];
@@ -31,16 +35,14 @@ const nivel = (imc) =>{
         if(result >= 29.9) return message[3];
         if(result >= 24.9) return message[2];
         if(result >= 18.5){ 
-            return message[1]
-        }else{
+            return message[1] }
+        if(result < 18.5){
             return message[0]
         } 
 }
 const getImc = (peso, altura) =>{
     const imc = peso/ altura **2
-    const result =  Number(imc.toFixed(2))
-    console.log(result)
-   
+    return imc.toFixed(2)
 }
 
 function createP (){
@@ -48,10 +50,14 @@ function createP (){
     return p;
 }
 
-function setResult (msg , isValid){
+function setResult (msg , isValid = Boolean){
     const result = document.querySelector("#result")
     result.innerHTML = ''
     const p = createP()
+
+    if (isValid) p.classList.add('success')
+    if (!isValid) p.classList.add('failed')
+
     p.innerHTML = msg
     result.appendChild(p)
 } 
