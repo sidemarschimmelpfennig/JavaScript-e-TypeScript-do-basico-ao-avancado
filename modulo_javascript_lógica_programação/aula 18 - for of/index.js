@@ -1,17 +1,14 @@
 //0123456 ...
 /*
-FOR OF
+For of==
 objeto iterravel voce pode fazer for of
 diferente do in que traz o indice esse traz o valor 
 */
 /* 
-For padrao ************
-const array = ['Name', 'Joao']
-
-for (let index = 0; index < array.length; index++) {
-    const element = array[index];
-    
-}*/
+For classico -  Geralmente com objetos iteraveis (strings ou arrays)
+For in - Retorna o indice dou chave (strings, arrays ou objetos)
+For of - Retorna o valor em si (iteráveis , arrays  ou strings) que tenham um indice
+*/
 
 const nome = ['Joao' , 'Pedro', 'Paul']
 console.log('##################################################')
