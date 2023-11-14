@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&family=Press+Start+2P&display=swap');
+:root{
+    --primary-color  :  #222222;
+    --primary-color-dark  :  #111111;
+}
+*{
+    box-sizing: border-box;
+    outline: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+.container {
+    max-width: 640px ;
+    margin : 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+p input, p label, p button{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+p input{
+    font-size: 24px;
+    height: 50px;
+    padding: 0 20px;
+}
+
+p input:focus{
+    outline: 1px solid var(--primary-color);
+}
+
+p button {
+    border: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    height: 50px;
+    cursor: pointer;
+}
+
+p button:hover{
+    background-color: var(--primary-color-dark);
+}
+
+.clear{
+    width: 200px;
+    height: 30px;
+}
