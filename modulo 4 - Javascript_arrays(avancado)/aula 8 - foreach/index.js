@@ -1,4 +1,5 @@
-//Reduce
+//foreach so pode ser iterado dentro de arrays
+
 const numeros  = [5, 50, 100, 10, 80, 90, 10010, 1, 60]
 const pessoas = [
     {
@@ -27,15 +28,17 @@ const pessoas = [
     
     ]
 
-    //numeros.reduce((acumulador, valor, indice, array)=>{ },0)
+    for(let value of numeros){
+        console.log(value)
+    }
 
-    const total = numeros.reduce((acumulador, valor, indice, array)=>{
-        if(valor%2 === 0)acumulador +=  valor
-        console.log(valor)
-        return acumulador
-    }, 0)
+   // numeros.forEach((valor, indice, array) => {
+   //     console.log(valor, indice)
+   // })
 
-    const maisVelho = pessoas.reduce((acumulador, valor)=> acumulador.idade > valor.idade ? acumulador : valor)
-    console.log(maisVelho)
+    let total = 0    
+    numeros.forEach(valor => {
+        total += valor
+    })
     console.log(total)
-
+    

@@ -1,4 +1,5 @@
-//Reduce
+//filter map e reduce juntos 
+
 const numeros  = [5, 50, 100, 10, 80, 90, 10010, 1, 60]
 const pessoas = [
     {
@@ -27,15 +28,7 @@ const pessoas = [
     
     ]
 
-    //numeros.reduce((acumulador, valor, indice, array)=>{ },0)
+//filter , map e reduce na mesma operaçao fazendo a soma do dobro de todos pares
+const numerosPares = numeros.filter(valor => valor % 2 === 0).map(obj => obj * 2).reduce((ac,value) => ac + value)
 
-    const total = numeros.reduce((acumulador, valor, indice, array)=>{
-        if(valor%2 === 0)acumulador +=  valor
-        console.log(valor)
-        return acumulador
-    }, 0)
-
-    const maisVelho = pessoas.reduce((acumulador, valor)=> acumulador.idade > valor.idade ? acumulador : valor)
-    console.log(maisVelho)
-    console.log(total)
-
+console.log(numerosPares)
