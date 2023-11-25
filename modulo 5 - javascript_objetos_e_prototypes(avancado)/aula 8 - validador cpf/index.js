@@ -18,9 +18,38 @@
 se o o digito for maiaor que 9 igual  a 0
 */
 
-let cpf = '088.494.769.65'
-let cpfLimpo = cpf.replace(/\D+/g, '')
-console.log(cpfLimpo)
+function CPFValidate(cpfReceived){
+   Object.defineProperty(this, 'clearCpf', {
+        enumerable : true,
+        get: function() {
+           return cpfReceived.replace(/\D+/g, '')
+        }
+   } )
+}
+CPFValidate.prototype.validate =  function(){
+        if(typeof this.clearCpf === 'undefined' || this.clearCpf === null )return false
+        if (this.clearCpf.length !== 11)return false
+        const parcialCpf = this.clearCpf.slice(0, -2)
+        const firstDigit = this.createDigit(parcialCpf)
+        const secondDigit = this.createDigit((parcialCpf + firstDigit)) 
+        
+        const newCpf = parcialCpf + firstDigit + secondDigit
+       
+        return newCpf === this.clearCpf
+}
+CPFValidate.prototype.createDigit = function (parcialCpf) {
+        const arrayCpf  = Array.from(parcialCpf)
+        let regressiveCounter = arrayCpf.length + 1
+        const digit = arrayCpf.reduce((ac, val)=>{
+                ac += (regressiveCounter * Number(val))  
+                regressiveCounter--
+                return ac
+        }, 0)
+        const total = 11 - (digit%11)
 
-const arr = Array.from(cpfLimpo)
-console.log(arr.reduce((ac, val) => ac + Number(val), 0))
+        return total > 9 ? '0' : String(total)
+}
+
+
+const cpf = new CPFValidate('088.494.769-65')
+console.log(cpf.validate())
