@@ -1,34 +1,42 @@
-//088.494.769.65
+
 /*
+111.111.111-11
+***cpf sequencial nao é valido
 
-0x  8x 8x 4x 9x 4x 7x 6x 9x
+
+1x  1x 1x 1x 1x 1x 1x 1x 1x
 10  9  8  7  6  5  4  3  2 
-0  72 64 28 54 20 28 18 18 = 302
+10  +9 +8 +7 +6 +5 +4 +3 +2 = total
 
-//pegar o primeiro numero
-11 - (312 % 11) = 6
-        5 é o resto da divisao 
-        se maior que nove considera-se 0
+ o resto da divisao por 11
+11 - (total % 11) = resultado
+       
+*********se maior que nove considera-se 0*********
 
-0x  8x 8x 4x 9x 4x 7x 6x 9x 6x
+1x  1x  1x 1x 1x 1x 1x 1x 1x resultadox
 11  10  9  8  7  6  5  4  3  2 
-0   80  72 32 63 24 35 24 27 12 = 324
-11 -(324 % 11) = 5
-        6
+11 +10 +9  +8 +7 +6 +5 +4 +3 +(resultado*2) = total2
+
+o resto da divisao por 11
+11 -(total2 % 11) = resultado2
+
+111.111.111-resultado resulatado2 === cpf de entrada        
 se o o digito for maiaor que 9 igual  a 0
 */
 
-function CPFValidate(cpfReceived){
-   Object.defineProperty(this, 'clearCpf', {
-        enumerable : true,
-        get: function() {
-           return cpfReceived.replace(/\D+/g, '')
-        }
-   } )
+function CpfValidate(cpfReceived){
+        if(typeof cpfReceived === 'undefined') return false
+        Object.defineProperty(this, 'clearCpf', {
+                enumerable : true,
+                get: function() {
+                        return cpfReceived.replace(/\D+/g, '')
+                }
+        } )
 }
-CPFValidate.prototype.validate =  function(){
-        if(typeof this.clearCpf === 'undefined' || this.clearCpf === null )return false
+CpfValidate.prototype.validate =  function(){
+        if(typeof this.clearCpf === 'undefined') return false
         if (this.clearCpf.length !== 11)return false
+        if(this.sequencialCpf()) return false
         const parcialCpf = this.clearCpf.slice(0, -2)
         const firstDigit = this.createDigit(parcialCpf)
         const secondDigit = this.createDigit((parcialCpf + firstDigit)) 
@@ -37,7 +45,7 @@ CPFValidate.prototype.validate =  function(){
        
         return newCpf === this.clearCpf
 }
-CPFValidate.prototype.createDigit = function (parcialCpf) {
+CpfValidate.prototype.createDigit = function (parcialCpf) {
         const arrayCpf  = Array.from(parcialCpf)
         let regressiveCounter = arrayCpf.length + 1
         const digit = arrayCpf.reduce((ac, val)=>{
@@ -50,6 +58,9 @@ CPFValidate.prototype.createDigit = function (parcialCpf) {
         return total > 9 ? '0' : String(total)
 }
 
+CpfValidate.prototype.sequencialCpf = function () {
+        return this.clearCpf[0].repeat(this.clearCpf.length) === this.clearCpf
+}
+const cpf = new CpfValidate()
 
-const cpf = new CPFValidate('088.494.769-65')
-console.log(cpf.validate())
+cpf.validate() ? console.log('Cpf válido') : console.log('Cpf Inválido')
