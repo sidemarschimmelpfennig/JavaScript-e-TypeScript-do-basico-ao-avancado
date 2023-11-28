@@ -61,6 +61,6 @@ CpfValidate.prototype.createDigit = function (parcialCpf) {
 CpfValidate.prototype.sequencialCpf = function () {
         return this.clearCpf[0].repeat(this.clearCpf.length) === this.clearCpf
 }
-const cpf = new CpfValidate()
+const cpf = new CpfValidate('660.489.490-81')
 
 cpf.validate() ? console.log('Cpf válido') : console.log('Cpf Inválido')
