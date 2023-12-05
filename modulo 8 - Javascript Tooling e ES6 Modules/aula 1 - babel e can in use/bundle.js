@@ -21,3 +21,5 @@ var Pessoa = /*#__PURE__*/_createClass(function Pessoa(nome, sobrenome) {
   this.nome = nome;
   this.sobrenome = sobrenome;
 }); //npx babel (arquivo origem) -o (arquivo destino) --presets=@babel/env
+
+
