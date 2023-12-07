@@ -1,0 +1,44 @@
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    align-items: center;
+}
+nav{
+    margin: auto;
+    top: 100px;
+    right: 0;
+    font-weight: bolder;
+    font-size: 1.2em;
+    font-family: sans-serif;
+}
+
+.menu-list{
+    display: inline-block;
+    list-style: none;
+}
+
+.menu-list li {
+    padding: 2em;
+    display: inline;
+    flex-direction: column;
+}
+
+.menu-list a{
+    text-decoration: none;
+    color: #fb3;
+    transition: 0.5s;
+}
+
+.menu-list a:hover{
+    cursor: pointer;
+    color: #fff;
+}
+
