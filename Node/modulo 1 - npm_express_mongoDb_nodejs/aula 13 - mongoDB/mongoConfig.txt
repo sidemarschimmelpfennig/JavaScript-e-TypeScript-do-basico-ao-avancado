@@ -1,0 +1,4 @@
+usuarrio mongo : sidemarschi
+senha : BV7Q3S37obso1jXP
+
+mongodb+srv://sidemarschi:<password>@cluster0.mscwacn.mongodb.net/?retryWrites=true&w=majority
