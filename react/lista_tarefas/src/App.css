@@ -1,0 +1,21 @@
+*{
+  margin : 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+:root{
+  --color1 : #260d0d ;
+  --color2 : #ffc803 ;
+  --color3 : #319190 ;
+  --color4 : #ffefb5 ;
+  --color5 : #ff4000 ;
+}
+body{
+  font-family: sans-serif;
+  background-color: var(--color1);
+}
+
+button {
+  cursor: pointer;
+}
