@@ -1,0 +1,17 @@
+{
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "eslint.validate": [
+      "javascript"
+    ],
+    "[javascriptreact]":{
+      "editor.codeActionsOnSave": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "source.organizeImports": "explicit"
+      }
+    },
+    "editor.formatOnSave": true,
+    "cSpell.enableFiletypes": ["javascript"],
+    "cSpell.language": "en,pt,pt_BR"
+}
